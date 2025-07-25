@@ -399,50 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Cursor trail effect
-let mouseX = 0;
-let mouseY = 0;
-let trailElements = [];
-
-function createCursorTrail() {
-    for (let i = 0; i < 10; i++) {
-        const trail = document.createElement('div');
-        trail.className = 'cursor-trail';
-        trail.style.cssText = `
-            position: fixed;
-            width: 6px;
-            height: 6px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: ${1 - i * 0.1};
-            transform: scale(${1 - i * 0.1});
-        `;
-        document.body.appendChild(trail);
-        trailElements.push(trail);
-    }
-}
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-function animateTrail() {
-    trailElements.forEach((trail, index) => {
-        const factor = index / trailElements.length;
-        trail.style.left = mouseX - 3 + Math.sin(Date.now() * 0.01 + index) * 10 * factor + 'px';
-        trail.style.top = mouseY - 3 + Math.cos(Date.now() * 0.01 + index) * 10 * factor + 'px';
-    });
-    requestAnimationFrame(animateTrail);
-}
-
-// Initialize cursor trail
-document.addEventListener('DOMContentLoaded', () => {
-    createCursorTrail();
-    animateTrail();
-});
+// Cursor trail effect removed
 
 // Admin Panel Functions
 function loadSubmissions() {
