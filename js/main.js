@@ -472,3 +472,8 @@ document.addEventListener('DOMContentLoaded', () => {
 console.log('🚀 Personal Website Loaded Successfully!');
 console.log('✨ Interactive features enabled');
 console.log('🎨 Modern animations activated');
+
+
+document.querySelector('#about').scrollIntoView({
+  behavior: 'smooth'
+});
